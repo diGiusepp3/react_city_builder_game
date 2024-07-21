@@ -1,5 +1,7 @@
 # Ontwikkeling city builder game
 
+# Doesnt work yet
+
 Week 1: Planning, opzetten en basisfunctionaliteiten
 Dag 1-2: Concept en planning
 
