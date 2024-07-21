@@ -56,11 +56,11 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <h2>Login Page</h2>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
+                <div className="form-group py-2">
                     <label htmlFor="username">Username:</label>
                     <input
+                        className="form-control"
                         type="text"
                         id="username"
                         name="username"
@@ -72,6 +72,7 @@ const Login = () => {
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
                     <input
+                        className="form-control"
                         type="password"
                         id="password"
                         name="password"

@@ -4,7 +4,7 @@ Welkom bij **City Builder Game**, een browsergebaseerde game waarmee je een stad
 maakt gebruik van React voor de frontend, Node.js voor de backend, en bevat een eenvoudig grid-systeem voor het
 ontwerpen van je stad.
 
-![Game Screenshot](path/to/your/screenshot.png)  <!-- Voeg een screenshot van je game toe -->
+![Schermafbeelding1.png](src/Schermafbeelding1.png)  <!-- Voeg een screenshot van je game toe -->
 
 ## Functionaliteit
 

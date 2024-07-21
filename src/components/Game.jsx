@@ -1,49 +1,81 @@
 import React, {useEffect, useRef} from 'react';
+import * as THREE from 'three';
+import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
 
 const Game = () => {
-    let topNav = document.getElementById("topNav");
-    if (topNav) {
-        topNav.style.display = 'none';
-    }
-    let startLogo = document.getElementById("startLogo");
-    if (startLogo) {
-        startLogo.style.display = 'none';
-    }
     const canvasRef = useRef(null);
 
     useEffect(() => {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({canvas: canvasRef.current});
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
+        // Add light
+        const light = new THREE.AmbientLight(0x404040); // Soft white light
+        scene.add(light);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 10, 7.5);
+        scene.add(directionalLight);
+
+        // Load OBJ file
+        const objLoader = new OBJLoader();
+        objLoader.load('/path/to/your/model.obj', (object) => {
+            object.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = new THREE.MeshStandardMaterial({
+                        color: 0xaaaaaa, // Optionally set a color
+                        roughness: 0.5,
+                        metalness: 0.5
+                    });
+                }
+            });
+            scene.add(object);
+
+            // Position the object
+            object.position.set(0, 0, 0);
+            object.scale.set(1, 1, 1);
+        });
+
+        // Create a grid
         const gridSize = 24;
-        const cellSize = canvas.width / gridSize;
+        const cellSize = 20; // Adjust size as needed
 
-        // Teken de achtergrond
-        ctx.fillStyle = 'green';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        const gridHelper = new THREE.GridHelper(gridSize * cellSize, gridSize, 0xffffff, 0x555555);
+        scene.add(gridHelper);
 
-        // Teken het raster
-        ctx.strokeStyle = 'white';
-        ctx.setLineDash([5, 5]); // Stippellijn
+        // Position the camera
+        camera.position.z = 100;
+        camera.position.y = 50;
+        camera.lookAt(0, 0, 0);
 
-        for (let x = 0; x <= canvas.width; x += cellSize) {
-            ctx.beginPath();
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, canvas.height);
-            ctx.stroke();
-        }
+        // Render loop
+        const animate = () => {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        };
+        animate();
 
-        for (let y = 0; y <= canvas.height; y += cellSize) {
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(canvas.width, y);
-            ctx.stroke();
-        }
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        return () => {
+            window.removeEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        };
     }, []);
 
     return (
         <div className="game-container" style={{position: 'relative', width: '100%', height: '100vh'}}>
-            <canvas ref={canvasRef} width={600} height={600} style={{display: 'block', margin: 'auto'}}></canvas>
+            <canvas ref={canvasRef}></canvas>
         </div>
     );
 };
