@@ -1,74 +1,119 @@
-# Getting Started with Create React App
+# Ontwikkeling city builder game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Week 1: Planning, opzetten en basisfunctionaliteiten
+Dag 1-2: Concept en planning
 
-## Available Scripts
+    Conceptdefinitie:
+        Bepaal de basis van je city builder game: genre, thema, doel en doelgroep.
+        Identificeer de kernmechanismen van het spel: stadsbeheer, economie, infrastructuur, enz.
+        Brainstorm over unieke kenmerken en functies die je game onderscheiden van andere city builders.
 
-In the project directory, you can run:
+    Gedetailleerd ontwerp:
+        Schets de lay-out en interface van het spel.
+        Maak wireframes voor de belangrijkste schermen: hoofdmenu, spelinterface, bouwmenu, enz.
+        Bepaal de essentiële functionaliteiten:
+            Grid-systeem voor de stadsindeling.
+            Verschillende soorten gebouwen en infrastructuur.
+            Middelenbeheer (geld, grondstoffen, energie, enz.).
+            Interactie met de gebruikersinterface (selecteren, bouwen, verwijderen).
 
-### `npm start`
+    Taaklijst en planning:
+        Verdeel de functies in kleinere, beheersbare taken.
+        Maak een tijdschema voor de komende dagen en weken.
+        Wijs taken toe aan specifieke dagen, rekening houdend met afhankelijkheden en prioriteiten.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Dag 3-4: Opzetten van de ontwikkelomgeving
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    React-project opzetten:
+        Installeer Node.js en npm als deze nog niet zijn geïnstalleerd.
+        Gebruik create-react-app om een nieuw React-project te maken:
 
-### `npm test`
+        bash
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        npx create-react-app city-builder
+        cd city-builder
 
-### `npm run build`
+    Basisstructuur opzetten:
+        Maak de mappenstructuur aan:
+            src/components: voor React-componenten.
+            src/assets: voor afbeeldingen en stijlen.
+            src/utils: voor hulpfuncties en constante waarden.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    Initiële componenten:
+        Maak basale componenten voor de spelinterface: Grid, Building, Sidebar, enz.
+        Zet een eenvoudige layout op met een raster in het midden en een zijbalk voor het bouwmenu.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Dag 5-6: Grid en gebouwen
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    Grid-systeem implementeren:
+        Definieer de grootte van het grid en de eenheden (bijvoorbeeld 10x10 cellen).
+        Maak een Grid-component die een rooster van cellen weergeeft.
+        Voeg state toe aan de Grid-component om de status van elke cel bij te houden (leeg, bezet, type gebouw).
 
-### `npm run eject`
+    Gebouwen plaatsen:
+        Maak een Building-component die verschillende soorten gebouwen kan weergeven.
+        Voeg functionaliteit toe om gebouwen te selecteren vanuit een bouwmenu en deze op het grid te plaatsen.
+        Implementeer logica om te controleren of een cel leeg is voordat er een gebouw geplaatst wordt.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Dag 7: Testen en debuggen
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Testen van de basisfunctionaliteiten:
+        Controleer of het grid correct wordt weergegeven.
+        Test het plaatsen van verschillende gebouwen op het grid.
+        Test de gebruikersinterface voor gebruiksvriendelijkheid en intuïtieve interactie.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    Debuggen:
+        Identificeer en los bugs en problemen op die zijn opgetreden tijdens het testen.
+        Optimaliseer de prestaties van het grid en de bouwmechanismen.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Week 2: Functionaliteiten implementeren en finaliseren
+Dag 1-2: Middelen en geld
 
-## Learn More
+    Middelenbeheer:
+        Maak een Resources-component om de beschikbare middelen weer te geven (bijv. geld, hout, steen).
+        Voeg state toe aan de hoofdcomponent om de hoeveelheid middelen bij te houden.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Geldbeheer:
+        Voeg functionaliteiten toe om geld te winnen (bijvoorbeeld door belastingheffing) en uit te geven (bijvoorbeeld voor het bouwen van gebouwen).
+        Implementeer logica om de kosten van gebouwen af te trekken van de beschikbare middelen.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Dag 3-4: Infrastructuur en uitbreiding
 
-### Code Splitting
+    Infrastructuur bouwen:
+        Voeg nieuwe bouwtypen toe zoals wegen, parken en andere infrastructuur.
+        Maak een systeem voor wegenbouw dat de connectiviteit tussen gebouwen kan bijhouden.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    Stadsuitbreiding:
+        Implementeer functionaliteit om het grid uit te breiden zodat de stad kan groeien.
+        Voeg mogelijkheden toe voor spelers om extra grond te kopen en te ontwikkelen.
 
-### Analyzing the Bundle Size
+Dag 5-6: UI/UX en styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    Gebruikersinterface:
+        Werk aan de lay-out en plaatsing van UI-elementen om de gebruikerservaring te verbeteren.
+        Voeg interactieve elementen toe zoals knoppen en menuschermen.
 
-### Making a Progressive Web App
+    Stijlen en thema's:
+        Gebruik CSS of een CSS-in-JS oplossing om de game aantrekkelijk te stylen.
+        Voeg thema’s en visuele effecten toe om de spelervaring te verbeteren.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Dag 7: Testen, debuggen en finaliseren
 
-### Advanced Configuration
+    Volledige tests:
+        Test alle spelmechanismen grondig, inclusief middelenbeheer, infrastructuur, en UI/UX.
+        Zorg ervoor dat alle functies samenwerken en dat de spelervaring soepel verloopt.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    Debuggen:
+        Identificeer en los laatste bugs op.
+        Optimaliseer de prestaties en zorg voor een vloeiende spelervaring.
 
-### Deployment
+Laatste dag: Documentatie en implementatie
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    Code en functionaliteiten documenteren:
+        Schrijf documentatie voor de belangrijkste onderdelen van de code.
+        Maak een gebruikershandleiding die de functies en bedieningselementen van het spel uitlegt.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# react_city_builder_game
-Beschrijving: Dit project is een eenvoudige city builder game gemaakt met React. 
->>>>>>> 8fd0fb2bd9d2372c0451356fb7a5e86d8a4965d3
+    Implementatie:
+        Implementeer de game op een website of platform (bijvoorbeeld GitHub Pages, Netlify).
+        Zorg ervoor dat de game toegankelijk is voor spelers en dat alle functies correct werken.
+        
