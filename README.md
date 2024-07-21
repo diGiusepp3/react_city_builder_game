@@ -115,4 +115,4 @@ Laatste dag: Documentatie en implementatie
 
     Implementatie:
         Implementeer de game op een website of platform (bijvoorbeeld GitHub Pages, Netlify).
-        Zorg ervoor dat de game toegankelijk is voor spelers en dat alle functies correct werken.
+
