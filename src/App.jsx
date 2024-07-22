@@ -2,7 +2,7 @@ import React, {useState, createContext, useContext} from 'react';
 import {BrowserRouter as Router, Route, Routes, Link, useLocation} from 'react-router-dom';
 import logo from './logo.png';
 import Home from './components/Home';
-import Game from './components/Game'; // Importeer de Game component
+import Game from './components/Game';
 import {About, Contact, Login} from './components/';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -10,8 +10,7 @@ import './App.css';
 export const UserContext = createContext();
 
 const Layout = () => {
-    const location = useLocation();
-    const {isLoggedIn} = useContext(UserContext); // Gebruik de context om de inlogstatus op te halen
+    const {isLoggedIn} = useContext(UserContext);
 
     return (
         <div className="App">
